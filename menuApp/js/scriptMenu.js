@@ -133,9 +133,9 @@ function ashe(latitud,longitud){
         },
         "geometry": {
           "coordinates": [
-            
-            latitud,
-            longitud
+            longitud,
+            latitud
+           
           ],
           "type": "Point",
        
