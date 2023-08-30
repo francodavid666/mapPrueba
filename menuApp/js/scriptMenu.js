@@ -118,8 +118,8 @@ function procesarUbicacion(latitud, longitud) {
 }
 
 
-
-const mapa = L.map('map').setView([-34.7735651,-58.6485321],15)
+                                    //longitud   //latitud
+const mapa = L.map('map').setView([-34.7675,-58.64278],15)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?',{}).addTo(mapa)
 
 function ashe(latitud,longitud){
@@ -135,8 +135,6 @@ function ashe(latitud,longitud){
           "coordinates": [
             latitud,
             longitud
-            
-           
           ],
           "type": "Point",
        
@@ -159,14 +157,14 @@ function ashe(latitud,longitud){
 
 
 
-/*
+
 var marcador = L.marker([-34.7735651,-58.6485321]).addTo(mapa)
 
 marcador.bindPopup('Hola ashee')
 
 const circulo = L.circle([-34.7735651,-58.6485321],{radius:200}).addTo(mapa)
 
-function clickSobreMapa(e){
+/*function clickSobreMapa(e){
 console.log(e)
 alert(e.latlng)
 };
