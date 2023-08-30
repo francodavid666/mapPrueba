@@ -123,34 +123,13 @@ const mapa = L.map('map').setView([-34.7675,-58.64278],15)
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?',{}).addTo(mapa)
 
 function ashe(latitud,longitud){
-  const puntosDeInteres = {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          "bindPopup": "casa"
-        },
-        "geometry": {
-          "coordinates": [
-            latitud,
-            longitud
-          ],
-          "type": "Point",
-       
-        }
-      }
-    ]
-  } 
- // alert('latidud='+latitud)
- // alert('longitud'+longitud)
-  L.geoJson(puntosDeInteres,{}).addTo(mapa)
- puntosDeInteres.bindPopup('Hola ashee').openPopup();
+ 
+const miUbicacion = L.marker([latitud ,longitud]).addTo(mapa)
+miUbicacion.bindPopup('Casa de nabori').openPopup();
 }
 
 
 //L.geoJson(areaPedidos,{}).addTo(mapa)
-
 
 
 
