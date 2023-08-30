@@ -142,8 +142,8 @@ function ashe(latitud,longitud){
       }
     ]
   } 
-  alert('latidud='+latitud)
-  alert('longitud'+longitud)
+ // alert('latidud='+latitud)
+ // alert('longitud'+longitud)
   L.geoJson(puntosDeInteres,{}).addTo(mapa)
  puntosDeInteres.bindPopup('Hola ashee').openPopup();
 }
