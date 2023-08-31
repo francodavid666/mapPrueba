@@ -1,4 +1,4 @@
-var lineasGeoJson = {
+/*var lineasGeoJson = {
     "type": "FeatureCollection",
     "features": [
       {
@@ -44,4 +44,4 @@ var lineasGeoJson = {
     ]
   }
 
-  L.geoJson(lineasGeoJson,{}).addTo(mapa)
+  L.geoJson(lineasGeoJson,{}).addTo(mapa)*/

@@ -91,6 +91,17 @@ function closeMenu(){
 }
 //Geo localizacion
 
+
+
+
+let mapa = L.map('map').setView([-34.7675, -58.64278],15)                          //longitud   //latitud
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?',{}).addTo(mapa)
+
+   
+
+
+
+
 $(document).ready(function(){
 
   $('#geo').click(function(){
@@ -100,8 +111,7 @@ $(document).ready(function(){
                   console.log('latidud= '+position.coords.latitude + 'longitud= ' +position.coords.longitude)
                   let latitud = position.coords.latitude
                   let  longitud= position.coords.longitude
-                  procesarUbicacion(latitud, longitud)
-                  ashe(latitud, longitud)
+                ashe(latitud, longitud) 
               },
               function(){
                   alert('No se permitio el acceso a la position')
@@ -111,45 +121,67 @@ $(document).ready(function(){
   });
 });
 
-function procesarUbicacion(latitud, longitud) {
-  // Aquí puedes trabajar con latitud y longitud en la función procesarUbicacion
-  console.log('Usando latitud = ' + latitud + ', longitud = ' + longitud);
-  // ...hacer algo más con los datos...
-}
-
-
-                                    //longitud   //latitud
-const mapa = L.map('map').setView([-34.7675,-58.64278],15)
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png?',{}).addTo(mapa)
 
 function ashe(latitud,longitud){
- 
-const miUbicacion = L.marker([latitud ,longitud]).addTo(mapa)
-miUbicacion.bindPopup('Casa de nabori').openPopup();
+
+
+
+let cafeteria = L.latLng(-34.7735651,-58.6485321)
+let yo = L.latLng(-34.7795451,-58.6344122)
+let distancia = cafeteria.distanceTo(yo)
+
+let distanciaKmtrs = distancia / 1000
+mapa.setView([latitud,longitud],16)
+mapa.setView([latitud,longitud],17)
+
+console.log('la distancia es de:'+distancia)
+console.log(distanciaKmtrs)
+console.log(distanciaKmtrs.toFixed(1))
+console.log(parseInt(distancia / 1000))
+
 }
 
 
-//L.geoJson(areaPedidos,{}).addTo(mapa)
+
+
+document.getElementById('select-location1').addEventListener('click',function(e){
+  let coords = e.target.value.split(',');
+  mapa.flyTo(coords,15)
+ 
+    const miUbicacion = L.marker(coords).addTo(mapa)
+    miUbicacion.bindPopup('Cafeteria').openPopup();
+ 
+ 
+
+const circulo = L.circle(coords,{radius:100}).addTo(mapa)
+})
+
+
+document.getElementById('select-location2').addEventListener('click',function(e){
+  let coords = e.target.value.split(',');
+  mapa.flyTo(coords,15)
+ 
+    const cafeteria = L.marker(coords).addTo(mapa)
+    cafeteria.bindPopup('Mi ubicacion').openPopup();
+ 
+ 
+
+const circulo = L.circle(coords,{radius:100}).addTo(mapa)
+})
 
 
 
 
 
 
+var marcadorCafeteria = L.marker([-34.7735651,-58.6485321]).addTo(mapa)
 
-var marcador = L.marker([-34.7735651,-58.6485321]).addTo(mapa)
+marcadorCafeteria.bindPopup('Cafeteria').openPopup();
 
-marcador.bindPopup('Hola ashee')
+const circulo = L.circle([-34.7735651,-58.6485321],{radius:100}).addTo(mapa)
 
-const circulo = L.circle([-34.7735651,-58.6485321],{radius:200}).addTo(mapa)
 
-/*function clickSobreMapa(e){
-console.log(e)
-alert(e.latlng)
-};
 
-mapa.on('click',clickSobreMapa)
-*/
 
 
 

@@ -18,7 +18,12 @@
     <header>
         <div class="container-titulo_usuario">
             <h1 class="titulo-usuario">Bienvenido, Franco!!!</h1>
-            <button id="geo"> Tu ubicacion</button>
+           <!-- <button id="geo"> Tu ubicacion</button>-->
+           <button value="-34.7735651,-58.6485321" id="select-location1">Cafeteria</button>
+           <button value="-34.7795451,-58.6344122" id="select-location2">Mi Ubicacion</button>
+
+           
+  
        
         </div>
        
@@ -89,9 +94,10 @@
         </ul>
     </footer>
     <script src="./menuApp/js/scriptMenu.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
 
   <script src="/menuApp/data/poligono.js"></script>
-
+  <script src="lib/geolib.js"></script>
 </body>
 </html>
